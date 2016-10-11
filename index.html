@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html data-ng-app="App">
+
+  <head>
+    <link rel="stylesheet" 
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap.min.css" 
+      type="text/css" />
+    <script data-require="angular.js@1.1.5" 
+      data-semver="1.1.5" 
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+    <script data-require="angular.js@1.1.5" 
+      data-semver="1.1.5" 
+      src="http://rawgithub.com/Ciul/angular-facebook/master/lib/angular-facebook.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body data-ng-controller="faceCtrl">
+  
+    <div class="page-header">
+      <h1>Facebook Auth</h1>  
+    </div>
+          
+    <div class="alert" data-ng-show="signin">
+      {{user.name}} has successfully logged in.
+    </div>
+            
+    <div class="alert" data-ng-show="signout">
+      You have successfully logged out.
+    </div>
+          
+    <button type="button" data-ng-show="!logged" 
+      data-ng-disabled="!facebookReady" 
+      data-ng-click="IntentLogin()">Login with Facebook
+    </button>
+          
+    <button type="button" data-ng-show="logged" 
+      data-ng-disabled="!facebookReady" 
+      data-ng-click="logout()">Logout
+    </button>
+          
+    <div>
+      <debug val="user"></debug>
+    </div>
+          
+          
+  </body>
+
+</html>
